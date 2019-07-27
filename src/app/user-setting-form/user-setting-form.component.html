@@ -1,10 +1,17 @@
 <div class="container">
     <h2>User Setting</h2>
-<form #form="ngForm">
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div class="form-group">
         <label for="name">Name</label>
-        <input id="name" name="Name" class="form-control" [(ngModel)]="userSettings.name">
-    </div>    
+        <input id="name" name="Name" class="form-control" 
+         [(ngModel)]="userSettings.name" required #nameField="ngModel"
+         (blur)="onBlur(nameField)"
+         [class.field-error]="form.submitted && nameField.invalid">
+         <div [hidden]="!form.submitted || nameField.valid"
+               class="alert alert-danger">
+               Enter Name
+          </div> 
+    </div>       
 
     <div class="form-check form-group">          
           
@@ -14,6 +21,7 @@
               Email Special Offers
             </label>
     </div>
+
     
     <p>User Interface Style</p>
     <div class="form-group">
