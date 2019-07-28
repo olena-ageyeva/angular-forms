@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { UserSettingFormComponent } from './user-setting-form/user-setting-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import { UserSettingFormComponent } from './user-setting-form/user-setting-form.
   ],
   imports: [
     BrowserModule,
-    FormsModule 
+    FormsModule,
+    HttpClientModule,
+    ButtonsModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]
